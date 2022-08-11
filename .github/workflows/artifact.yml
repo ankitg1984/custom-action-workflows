@@ -1,4 +1,4 @@
-name: Artifact
+name: Python pipeline
 
 on: [push]
 
@@ -6,8 +6,19 @@ env:
   ARTIFACT_NAME: myartifact
 
 jobs:
-  main:
-    name: job1-desc
+  test:
+    name: test-desc
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+      
+    - name: Upload artifact for linux
+      run : python hello.py
+      
+  build:
+    needs: [test]
+    name: build-desc
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
