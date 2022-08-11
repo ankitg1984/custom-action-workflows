@@ -7,6 +7,7 @@ jobs:
     name: custom-desc
     runs-on: ubuntu-latest
     steps:
+    - run echo $GITHUB_EVENT_NAME
     - run: echo $GITHUB_EVENT_PATH
     - run: cat /home/runner/work/_temp/_github_workflow/event.json
     - run: df -kh
