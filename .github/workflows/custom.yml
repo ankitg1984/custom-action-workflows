@@ -7,6 +7,7 @@ jobs:
     name: custom-desc
     runs-on: ubuntu-latest
     steps:
+    - run: echo $GITHUB_EVENT_PATH
     - name: Check out code
       uses: actions/checkout@v2
     - uses: ankitg1984/custom-action@main
